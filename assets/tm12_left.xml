@@ -1,0 +1,37 @@
+
+<mujocoinclude>
+<!-- pos="-0.45 0.5 0" -->
+    <body name="tm12_left" pos="-0.45 0.5 0" quat="0 0 0 1">
+        <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tm12-base"/>
+        <body name="tm12_left/shoulder_link" pos="0 0 0.0826">
+            <inertial pos="-0.000000 -0.007067 -0.005252" quat="0.5 0.5 -0.5 0.5" mass="7.6" diaginertia="0.00213963 0.00202893 0.00202893"/>
+			      <joint name="tm12_left/waist" pos="0 0 0" axis="0 0 1" range="-4.71239 4.71239" frictionloss="200"/>
+            <geom type="mesh" rgba="0.3 0.3 0.3 1" mesh="tmr_750w_01"/>
+            <body name="tm12_left/upper_arm_link" quat="0.5 -0.5 -0.5 -0.5">
+                <inertial pos="0.217714 0.000000 -0.177284" quat="0 0.707107 0 0.707107" mass="14.0239" diaginertia="1.20339 1.17588 0.0715057"/>
+                <joint name="tm12_left/shoulder" pos="0 0 0" limited="true" axis="0 0 1" range="-3.14159 3.14159" frictionloss="200"/>
+                <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tm12-arm1"/>	
+                <body name="tm12_left/upper_forearm_link" pos="0.31805 0 0">
+                    <inertial pos="0.286156 -0.000000 -0.052936" quat="0 0.707107 0 0.707107" mass="3.3577" diaginertia="0.166567 0.163347 0.00975547"/>
+                    <joint name="tm12_left/elbow" pos="0 0 0" limited="true" axis="0 0 1" range="-2.89725 2.89725" actuatorfrcrange="-157 157" frictionloss="200"/>
+                    <geom type="mesh" rgba="0.3 0.3 0.3 1" mesh="tm12-arm2"/>	
+                    <body name="tm12_left/lower_forearm_link" pos="0.27895 0 -0.07815" quat="0.707107 0 0 0.707107">
+                        <inertial pos="-0.000004 -0.000069 0.004120" quat="0 0.707107 0 0.707107" mass="1.576" diaginertia="0.00264321 0.00256308 0.00205841"/>
+                        <joint name="tm12_left/wrist_angle" pos="0 0 0" limited="true" axis="0 0 1" range="-3.14159 3.14159" actuatorfrcrange="-54 54" frictionloss="200"/>
+                        <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tmr_100w_01"/>		
+                        <body name="tm12_left/link_5" pos="0 -0.053 0" quat="0.707107 0.707107 0 0">
+                            <inertial pos="0.000004 -0.000069 -0.004120" quat="0 0.707107 0 0.707107" mass="1.576" diaginertia="0.00264321 0.00256308 0.00205841"/>
+                            <joint name="tm12_left/forearm_roll" pos="0 0 0" limited="true" axis="0 0 1" range="-3.14159 3.14159" actuatorfrcrange="-54 54" frictionloss="200"/>
+                            <geom type="mesh" rgba="0.3 0.3 0.3 1" mesh="tmr_100w_02"/>			
+                            <body name="tm12_left/link_6" pos="0 -0.056575 0" quat="0.707107 0.707107 0 0">
+                                <inertial pos="0 -0.11315 0" quat="0 0.707107 0 0.707107" mass="0.65" diaginertia="0.0015595 0.00138381 0.000774544"/>
+                                <joint name="tm12_left/wrist_rotate" pos="0 0 0"  limited="true" axis="0 0 1" range="-4.71239 4.71239" actuatorfrcrange="-54 54" frictionloss="200"/>
+                                <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tmr_ee"/>										
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+    </body>
+</mujocoinclude>

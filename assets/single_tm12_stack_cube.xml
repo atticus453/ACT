@@ -1,0 +1,49 @@
+<mujoco>
+    <include file="scene_tm12.xml"/>
+    <include file="tm12_dependencies.xml"/>
+
+    <worldbody>
+        <include file="tm12_right.xml" />
+
+        <body name="box" pos="0.0 0.6 0.05">
+            <joint name="red_box_joint" type="free" frictionloss="0.01" />
+            <inertial pos="0 0 0" mass="0.05" diaginertia="0.002 0.002 0.002" />
+            <geom condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" pos="0 0 0" size="0.02 0.02 0.02" type="box" name="red_box" rgba="1 0 0 1" />
+        </body>
+
+        <body name="box2" pos="0.0 0.4 0.05">
+            <joint name="green_box_joint" type="free" frictionloss="0.01" />
+            <inertial pos="0 0 0" mass="0.05" diaginertia="0.002 0.002 0.002" />
+            <geom condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" pos="0 0 0" size="0.02 0.02 0.02" type="box" name="green_box" rgba="0 1 0 1" />
+        </body>
+
+    </worldbody>
+
+    <actuator>
+		<!--
+        <position joint="tm12_right/waist" forcerange="-353 353" ctrlrange="-4.71239 4.71239"/>
+        <position joint="tm12_right/shoulder" forcerange="-353 353" ctrlrange="-3.14159 3.14159"/>
+        <position joint="tm12_right/elbow" forcerange="-157 157" ctrlrange="-2.89725 2.89725"/>
+        <position joint="tm12_right/wrist_angle" forcerange="-54 54" ctrlrange="-3.14159 3.14159"/>
+        <position joint="tm12_right/forearm_roll" forcerange="-54 54" ctrlrange="-3.14159 3.14159"/>
+        <position joint="tm12_right/wrist_rotate" forcerange="-54 54" ctrlrange="-4.71239 4.71239"/>
+		-->
+		
+		<!--
+		<motor joint="tm12_right/waist" ctrllimited="true" ctrlrange="-353 353"/>
+		-->
+		
+		<position joint="tm12_right/waist" ctrlrange="-4.712 4.712" kp="1000" />
+		<position joint="tm12_right/shoulder" ctrllimited="true" ctrlrange="-3.14159 3.14159" kp="800" user="1" />
+		<position joint="tm12_right/elbow" ctrllimited="true" ctrlrange="-2.89725 2.89725" kp="1000" user="1" />
+		<position joint="tm12_right/wrist_angle" ctrllimited="true" ctrlrange="-3.14159 3.14159" kp="1000" user="1" />
+		<position joint="tm12_right/forearm_roll" ctrllimited="true" ctrlrange="-3.14159 3.14159" kp="1000" user="1" />
+		<position joint="tm12_right/wrist_rotate" ctrllimited="true" ctrlrange="-4.712 4.712" kp="1000" user="1" />
+    </actuator>
+
+    <keyframe>
+        <key qpos="0 0 -1.56 0 -1.56 0 0.0 0.6 0.05 1 0 0 0 0.0 0.6 0.05 1 0 0 0"/>
+    </keyframe>
+
+
+</mujoco>

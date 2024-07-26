@@ -1,0 +1,69 @@
+<mujocoinclude>
+    <body name="tm12_left" pos="-0.45 0.5 0" quat="1 0 0 0">
+        <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tm12-base"/>
+        <body name="tm12_left/shoulder_link" pos="0 0 0.115">
+            <inertial pos="-0.000000 -0.007067 -0.005252" quat="0.5 0.5 -0.5 0.5" mass="7.6" diaginertia="0.00213963 0.00202893 0.00202893"/>
+			<joint name="tm12_left/waist" pos="0 0 0" axis="0 0 1" range="-4.71239 4.71239" limited="true" frictionloss="200"/>
+            <geom type="mesh" rgba="0.3 0.3 0.3 1" mesh="tmr_750w_01"/>
+            <body name="tm12_left/upper_arm_link" quat="0.5 -0.5 -0.5 -0.5">s
+                <inertial pos="0.217714 0.000000 -0.177284" quat="0 0.707107 0 0.707107" mass="14.0239" diaginertia="1.20339 1.17588 0.0715057"/>
+                <joint name="tm12_left/shoulder" pos="0 0 0" limited="true" axis="0 0 1" range="-3.14159 3.14159" frictionloss="200"/>
+                <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tm12-arm1"/>	
+                <body name="tm12_left/upper_forearm_link" pos="0.4451 0 0">
+                    <inertial pos="0.286156 -0.000000 -0.052936" quat="0 0.707107 0 0.707107" mass="3.3577" diaginertia="0.166567 0.163347 0.00975547"/>
+                    <joint name="tm12_left/elbow" pos="0 0 0" limited="true" axis="0 0 1" range="-2.89725 2.89725" frictionloss="200"/>
+                    <geom type="mesh" rgba="0.3 0.3 0.3 1" mesh="tm12-arm2"/>	
+                    <body name="tm12_left/lower_forearm_link" pos="0.3901 0 -0.11115" quat="0.707107 0 0 0.707107">
+                        <inertial pos="-0.000004 -0.000069 0.004120" quat="0 0.707107 0 0.707107" mass="1.576" diaginertia="0.00264321 0.00256308 0.00205841"/>
+                        <joint name="tm12_left/wrist_angle" pos="0 0 0" limited="true" axis="0 0 1" range="-3.14159 3.14159" frictionloss="200"/>
+                        <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tmr_100w_01"/>		
+                        <body name="tm12_left/link_5" pos="0 -0.0755 0" quat="0.707107 0.707107 0 0">
+                            <inertial pos="0.000004 -0.000069 -0.004120" quat="0 0.707107 0 0.707107" mass="1.576" diaginertia="0.00264321 0.00256308 0.00205841"/>
+                            <joint name="tm12_left/forearm_roll" pos="0 0 0" limited="true" axis="0 0 1" range="-3.14159 3.14159" frictionloss="200"/>
+                            <geom type="mesh" rgba="0.3 0.3 0.3 1" mesh="tmr_100w_02"/>			
+                            <body name="tm12_left/link_6" pos="0 -0.080575 0" quat="0.707107 0.707107 0 0">
+                                <inertial pos="0 -0.11315 0" quat="0 0.707107 0 0.707107" mass="0.65" diaginertia="0.0015595 0.00138381 0.000774544"/>
+                                <joint name="tm12_left/wrist_rotate" pos="0 0 0"  limited="true" axis="0 0 1" range="-4.71239 4.71239" frictionloss="200"/>
+                                <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="tmr_ee"/>
+                                <!-- Gripper -->
+                                <body name="tm12_left/gripper_link" pos="0 -0.003 0.0003" quat="0.5 -0.5 -0.5 -0.5">
+                                    
+                                    <body name="tm12_left/camera_focus" pos="0.15 0 0.01">
+                                        <site pos="0 0 0" size="0.01" type="sphere" name="left_cam_focus" rgba="0 0 1 0"/>
+                                    </body>
+                                    
+                                    <site pos="0.15 0 0" size="0.003 0.003 0.03" type="box" name="cali_left_site1" rgba="0 0 1 0"/>
+                                    <site pos="0.15 0 0" size="0.003 0.03 0.003" type="box" name="cali_left_site2" rgba="0 0 1 0"/>
+                                    <site pos="0.15 0 0" size="0.03 0.003 0.003" type="box" name="cali_left_site3" rgba="0 0 1 0"/>
+                                    <camera name="left_wrist" pos="-0.1 0 0.16" fovy="20" mode="targetbody" target="tm12_left/camera_focus"/>
+                                    <inertial pos="0.0395662 -2.56311e-07 0.00400649" quat="0.62033 0.619916 -0.339682 0.339869" mass="0.251652" diaginertia="0.000689546 0.000650316 0.000468142" />
+                                    <geom pos="-0.02 0 0" quat="0.707107 0 0 0.707107" type="mesh" mesh="vx300s_7_gripper" name="tm12_left/7_gripper" />
+                                    <geom pos="-0.020175 0 0" quat="0.707107 0 0 0.707107" type="mesh" mesh="vx300s_9_gripper_bar" name="tm12_left/9_gripper_bar" />
+                                    
+                                    <body name="tm12_left/gripper_prop_link" pos="0.0485 0 0">
+                                        <inertial pos="0.002378 2.85e-08 0" quat="0 0 0.897698 0.440611" mass="0.008009" diaginertia="4.2979e-06 2.8868e-06 1.5314e-06" />
+                                        <geom pos="-0.0685 0 0" quat="0.707107 0 0 0.707107" type="mesh" mesh="vx300s_8_gripper_prop" name="tm12_left/8_gripper_prop" />
+                                    </body>
+                                    
+                                    <body name="tm12_left/left_finger_link" pos="0.0687 0 0">
+                                        <inertial pos="0.017344 -0.0060692 0" quat="0.449364 0.449364 -0.54596 -0.54596" mass="0.034796" diaginertia="2.48003e-05 1.417e-05 1.20797e-05" />
+                                        <joint name="tm12_left/left_finger" pos="0 0 0" axis="0 1 0" type="slide" limited="true" range="0.021 0.057" frictionloss="30" />
+                                        <geom condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" pos="0.001 -0.052 0" euler="3.14 1.57 0" type="mesh" mesh="vx300s_10_gripper_finger_left" name="tm12_left/10_left_gripper_finger"/>
+                                    </body>
+                                    
+                                    <body name="tm12_left/right_finger_link" pos="0.0687 0 0">
+                                        <inertial pos="0.017344 0.0060692 0" quat="0.44937 -0.44937 -0.545955 -0.545955" mass="0.034796" diaginertia="2.48002e-05 1.417e-05 1.20798e-05" />
+                                        <joint name="tm12_left/right_finger" pos="0 0 0" axis="0 1 0" type="slide" limited="true" range="-0.057 -0.021" frictionloss="30" />
+                                        <geom condim="4" solimp="2 1 0.01" solref="0.01 1" friction="1 0.005 0.0001" pos="0.001 0.052 0" euler="3.14 1.57 0" type="mesh" mesh="vx300s_10_gripper_finger_right" name="tm12_left/10_right_gripper_finger"/>
+                                    </body>
+                                
+                                </body>
+                                <!-- END Gripper-->
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+    </body>
+</mujocoinclude>
